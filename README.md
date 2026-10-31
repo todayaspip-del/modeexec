@@ -1,11 +1,17 @@
-<div align="center">
+# MODO EXECUÇÃO
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Sistema de 30 dias para empreendedores transformarem tarefas adiadas em ações claras, decisões tomadas e entregas concluídas.
 
-  <h1>Built with AI Studio</h2>
+## Rodar localmente
+1. `npm install`
+2. Copie `.env.example` para `.env.local` e preencha `GEMINI_API_KEY` (IA).
+3. `npm run dev`
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+Sem configuração de Supabase o app roda em **modo local** (sem login; dados no navegador).
+Para ativar **contas e sincronização na nuvem**, siga `SETUP_SUPABASE.md`.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Produção
+`npm run build` e depois `npm start` (servidor Express servindo `dist/` e a API).
 
-</div>
+## Testes
+`npm test` (sincronização + interface) e `npm run build && node scripts/test-server.mjs` (servidor).

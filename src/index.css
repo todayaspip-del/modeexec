@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-editorial: "Space Grotesk", system-ui, sans-serif;
+  --font-serif: "Space Grotesk", system-ui, sans-serif;
+  --font-mono: "Space Grotesk", monospace, sans-serif;
+
+  /* Official Brand Palette - Modo eXec Acid Lime */
+  --color-brand-lime: #D7FF3F;
+  --color-brand-black: #101114;
+  --color-brand-bone: #F3F0EB;
+  --color-brand-gray: #8D9298;
+  --color-brand-lilac: #8D79FF;
+
+  /* Semantic Brand Tokens */
+  --color-brand-primary: #101114;
+  --color-brand-accent: #D7FF3F;
+  --color-brand-accent-hover: #C6F52A;
+  --color-brand-surface: #101114;
+  --color-brand-surface-card: #16181D;
+  --color-brand-surface-elevated: #1C1F26;
+  --color-brand-signal: #D7FF3F;
+  --color-brand-success: #D7FF3F;
+
+  /* Neutrals mapped to Ink Black & Warm Bone */
+  --color-stone-50: #F3F0EB;
+  --color-stone-100: #E6E2DC;
+  --color-stone-200: #D0CCC4;
+  --color-stone-300: #8D9298;
+  --color-stone-400: #6A6E73;
+  --color-stone-500: #4B4F55;
+  --color-stone-600: #35383D;
+  --color-stone-700: #23272D;
+  --color-stone-800: #1B1E24;
+  --color-stone-900: #16181D;
+  --color-stone-950: #101114;
+
+  /* Ação / Destaques = Acid Lime */
+  --color-orange-50: #FAFFE6;
+  --color-orange-100: #F2FFBF;
+  --color-orange-200: #E8FF8A;
+  --color-orange-300: #DEFF5C;
+  --color-orange-400: #D7FF3F;
+  --color-orange-500: #C2ED2B;
+  --color-orange-600: #A8D419;
+  --color-orange-700: #86AB10;
+  --color-orange-800: #64820B;
+  --color-orange-900: #435905;
+  --color-orange-950: #233002;
+
+  /* Atenção / Apoio / Gráficos = Electric Lilac */
+  --color-amber-50: #F4F2FF;
+  --color-amber-100: #E7E3FF;
+  --color-amber-200: #D1CAFF;
+  --color-amber-300: #B2A6FF;
+  --color-amber-400: #8D79FF;
+  --color-amber-500: #745CFA;
+  --color-amber-600: #5E42EB;
+  --color-amber-700: #4A30CF;
+  --color-amber-800: #3B26A6;
+  --color-amber-900: #2C1D7D;
+  --color-amber-950: #190F4F;
+
+  --color-emerald-50: #FAFFE6;
+  --color-emerald-100: #F2FFBF;
+  --color-emerald-200: #E8FF8A;
+  --color-emerald-600: #D7FF3F;
+  --color-emerald-700: #C2ED2B;
+  --color-emerald-900: #435905;
+
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --shadow-xs: none;
+  --shadow-sm: 0 0 0 1px rgb(255 255 255 / 0.08);
+  --shadow-xl: 0 24px 48px -24px rgb(0 0 0 / 0.75);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--color-brand-surface);
+  color: var(--color-brand-bone);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: #D7FF3F; color: #101114; }
+
+/* Tipografia: Space Grotesk para títulos e números, Inter para UI e texto */
+h1, h2, h3, .font-editorial, .font-serif, .font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: normal !important;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+h3 { font-weight: 650; letter-spacing: -0.015em; }
+.tabular-nums, .font-mono { font-variant-numeric: tabular-nums; }
+
+/* Assinatura visual: a faixa dos 30 dias */
+.ribbon { display: grid; grid-template-columns: repeat(30, 1fr); gap: 3px; }
+.ribbon i { display: block; height: 28px; border-radius: 2px; background: rgb(255 255 255 / 0.12); }
+.ribbon i.done { background: #F3F0EB; }
+.ribbon i.now { background: #D7FF3F; height: 40px; align-self: end; box-shadow: 0 0 12px rgba(215, 255, 63, 0.4); }
+.ribbon.on-light i { background: #23272D; }
+.ribbon.on-light i.done { background: #D7FF3F; }
+
+/* Moldura escura (header + sidebar) e malha técnica */
+.frame-dark { background: #16181D; color: #F3F0EB; }
+.grid-lines {
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+:focus-visible { outline: 2px solid #D7FF3F; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(141, 146, 152, 0.25); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(215, 255, 63, 0.4); }
+
+/* Custom Magic Smooth Cursor */
+@media (min-width: 768px) and (pointer: fine) {
+  body.hide-native-cursor,
+  body.hide-native-cursor *,
+  body.hide-native-cursor button,
+  body.hide-native-cursor a,
+  body.hide-native-cursor input,
+  body.hide-native-cursor textarea,
+  body.hide-native-cursor [role="button"] {
+    cursor: none !important;
+  }
+}
